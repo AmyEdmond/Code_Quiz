@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Code Quiz</title>
+        <link rel="stylesheet" href="./assets/css/style.css">
+    </head>
+    <body>
+        <header>
+            <div class="header">
+            <div>
+                <a href="#"><span>View Highscores</span></a>
+            </div>
+            <div class ="timer"> Time left: <span id = "time">0</span></div>
+            </div>
+        </header>
+
+        <main>
+            <div class="wrapper">
+                <div id="startscreen">
+                    <h1>Coding Quiz Challenge</h1>
+                    <p>Try to answer the following code-related questions whitin the time limit
+                    <br>Keep in mind that incorrect answers will penalize your score/time by ten seconds!</br>
+                    </p>
+            
+                    <button id="start_quiz" class="button"> Start Quiz</button>
+                </div>
+
+                <div id="questions" class="hide">
+                    <h2 id="title"></h2>
+                    <div id="choices" class="choices"></div>
+                </div>
+            
+                <div id="quizEnd" class="hide">
+                    <div>
+                        <h2>All done!</h2>
+                        <input id="initials">
+                           <p> <h2>Enter initials: </h2> 
+                            <input type="text" id="initials" name="initials" /> 
+                            <button id="submit" class="button">Submit</button>
+                           </p>
+                    </div>
+                </div>
+                <div id="highScores" class="hide">
+                        <h2>High Scores</h2>
+                        <div>Your final score is: <span id ="score">0</span></div>
+                        <div>
+                            <button id="backButton" class="button">Go back</button> 
+                            <button id="clearButton" class="button">Clear Highscores</button>
+                        </div>  
+                    
+                </div>
+
+            </div>
+        
+
+        </main>
+        <footer>
+            <p> Made with 💖 and 🧠 power by Amanda Edmond</p>
+        </footer>
+        <script src = "assets/js/question.js"></script>
+        <script src="assets/js/script.js"></script>
+    </body>
+</html>
