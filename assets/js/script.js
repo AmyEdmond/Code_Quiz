@@ -52,15 +52,17 @@ function clickButton (e) {
         }
     
         timeEl.textContent = secondsLeft;
-        checkAnswerEl.textContent = "Wrong!"
+        checkAnswerEl.textContent = "Wrong!";
+
      } else{
-        checkAnswerEl.textContent = "Correct!"
+
+        checkAnswerEl.textContent = "Correct!";
     }
 
     checkAnswerEl.setAttribute("class", "checkAnswer");
     setTimeout(function() {
     checkAnswerEl.setAttribute("class", "hide");
-     }, 1000);
+     }, 1000); 
 
     currentQuestionIndex++;
 
@@ -76,7 +78,6 @@ function clickButton (e) {
 function quizEnd() {
     clearInterval(timer);
     questionsEl.setAttribute("class","hide")
-    endScreenEl.setAttribute("class","hide")
     endScreenEl.removeAttribute("class");
     finalScores.textContent = timer;
 }
@@ -92,17 +93,34 @@ function setTime() {
     }
 }
 
+function totalScore() {
+    if (secondsLeft < 0) {
+        secondsLeft === 0;
+    }
+    console.log(secondsLeft);
+    return score = secondsLeft;
+}
+
 function saveScores() {
     var initials = initialsEl.value;
-    if (initials !== "") {
-        var highScores = JSON.parse(window.localStorage.getItem("highscores")) || [];
-        var addScores = { initials: initials, Scores: secondsLeft};
-        highScores.push(addScores)
-        window.localStorage.setItem("highScores", JSON.stringify(highScores));
-    } else {
-    alert ("You must enter letters only. Please try again.");
-    }
+        if (initials !== "") {
+            var finalScore = {
+              score: timeEl.textContent,
+              initials: initials
+            };
+            var scores = localStorage.getItem("scores");
+            if (scores === null) {
+              scores = [];
+            } else {
+              scores = JSON.parse(scores);
+            }
+            scores.push(finalScore);
+            var newScore = JSON.stringify(scores);
+            localStorage.setItem("scores", newScore); 
+        } 
+   
 }
+
 
 submitInitials.onclick = saveScores;
  
