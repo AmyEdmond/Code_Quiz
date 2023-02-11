@@ -1,5 +1,4 @@
-var timeEl = document.getElementById("time");
-var timer;
+var timeEl = document.getElementById("timer");
 var currentQuestionIndex = 0;
 var startScreen = document.getElementById("startscreen");
 var endScreen = document.getElementById("endScreen");
@@ -9,7 +8,7 @@ var questionsEl  = document.getElementById("questions");
 var choices = document.getElementById("choices");
 var checkAnswerEl = document.getElementById("checkAnswer");
 var currentQuestion;
-var highScores = document.getElementById("score");
+var FinalScores = document.getElementById("highScores");
 var viewHighscoreEl = document.getElementById("viewHighscores");
 var backbuttonEl = document.getElementById("backbutton");
 var clearButtonEl = document.getElementById("clearButton");
@@ -79,8 +78,8 @@ function quizEnd() {
     endScreen.removeAttribute("class");
   
     // show score
-    var highScores = document.getElementById("score");
-    highScores.textContent = timer;
+    var FinalScores = document.getElementById("highScores");
+    FinalScores.textContent = timer;
   
     // hide questions element
     questionsEl.setAttribute("class", "hide");
@@ -99,10 +98,10 @@ function setTime() {
 }
 
 function saveScores() {
-    var initials = initials.value.trim();
-    if (initials) {
+    var initials = submitInitials.value.trim();
+    if (initials = "") {
         var highScores = JSON.parse(window.localStorage.getItem("highscores")) || []; 
-        var saveScores = { username: initials, saveScores: scores};
+        var saveScores = { username: initials, saveScores: highScores};
         initials.value = '';
 
 
