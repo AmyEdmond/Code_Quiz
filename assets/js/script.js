@@ -5,6 +5,7 @@ var endScreenEl = document.getElementById("endScreen");
 var secondsLeft = 75;
 var startButton = document.getElementById("start_quiz");
 var questionsEl  = document.getElementById("questions");
+var titleEl = document.getElementById("title");
 var choices = document.getElementById("choices");
 var checkAnswerEl = document.getElementById("checkAnswer");
 var currentQuestion;
@@ -24,7 +25,6 @@ function quizStart() {
 }
 
 function nextQuestion() {
-    var titleEl = document.getElementById("title");
     currentQuestion = questions[currentQuestionIndex];
     titleEl.textContent = currentQuestion.title;
     choices.innerHTML ="";
@@ -75,39 +75,34 @@ function clickButton (e) {
 
 function quizEnd() {
     clearInterval(timer);
+    questionsEl.setAttribute("class","hide")
     endScreenEl.setAttribute("class","hide")
     endScreenEl.removeAttribute("class");
     finalScores.textContent = timer;
-    questionsEl.setAttribute("class", "hide");
 }
 
  
 function setTime() {
-  // Sets interval in variable
     secondsLeft--;
     timeEl.textContent = secondsLeft;
 
     if(secondsLeft <= 0) {
-      // Stops execution of action at set interval
-      quizEnd();
+            // Stops execution of action at set interval
+        quizEnd();
     }
 }
 
 function saveScores() {
-    var initials = initialsEl.value.trim();
+    var initials = initialsEl.value;
     if (initials !== "") {
-        var highScores = JSON.parse(window.localStorage.getItem("highscores")) || []; 
-        var addScores = { username: initials, Scores: secondsLeft};
-        initials.value = '';
-
-
-        highScores.push(addScores);
-        window.localStorage.setItem("highScores", JSON.stringify(highScores))
-
-        window.location.href = "viewHighScores";
+        var highScores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+        var addScores = { initials: initials, Scores: secondsLeft};
+        highScores.push(addScores)
+        window.localStorage.setItem("highScores", JSON.stringify(highScores));
+    } else {
+    alert ("You must enter letters only. Please try again.");
     }
 }
-
 
 submitInitials.onclick = saveScores;
  

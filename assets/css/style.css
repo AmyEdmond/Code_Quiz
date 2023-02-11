@@ -17,6 +17,8 @@ body {
 
   .wrapper {
     text-align: center;
+    margin: 100px auto 0 auto;
+    max-width: 600px;
   }
 
   a {
@@ -25,7 +27,7 @@ body {
   }
 
 
-#timer {
+.timer {
     text-align: justify;
     padding: 10px;
     padding-top: 0px;
@@ -40,6 +42,15 @@ p {
     display: block;
 }
 
+.choices button {
+    display: block;
+  }
+
+.checkAnswer {
+color: black;
+font-weight: bold;
+font-size: large;
+}
 .button {
     background: indigo;
     color: white;
@@ -53,11 +64,10 @@ p {
     background-color: blueviolet;
 }
 
-    
 
-  input[type="text"] {
+input[type="text"] {
     font-size: 100%;
-  }
+}
 
 .score input:focus {
     background-color: violet;
@@ -69,9 +79,9 @@ footer {
     width: 100%;
     color: black;
     
-  }
+}
 
-  #startscreen {
+.startscreen {
     text-align: center;
-  }
+}
   

@@ -11,7 +11,7 @@
         <header>
             <div class="header">
             <div>
-                <a href="viewHighscores"><span>View Highscores</span></a>
+                <button id="viewHighscores" class="button" type="button">View Highscores</button>
             </div>
             <div class ="timer"> Time left: <span id = "timer">0</span></div>
             </div>
@@ -35,23 +35,24 @@
                     </div>
             
                     <div id="endScreen" class="hide">
-                        <div>
                             <h2>All done!</h2>
-                            <p> 
+                            <p>Your final score is: <span id ="Scores"></span></p>
                                 <h2>Enter initials: </h2> 
                                 <input type="text" id="addInitials" max="3" /> 
                                 <button id="submitInitials" class="button">Submit</button>
-                            </p>
-                        </div>
                     </div>
                     <div id="lastScores" class="hide">
-                        <div>Your final score is: <span id ="Scores">0</span></div>
-                        <div>
+                            <h3>Highscores</h3>
+                            <ol id="storedScores">                                
+                            </ol>
                             <button id="backButton" class="button">Go back</button> 
                             <button id="clearButton" class="button">Clear Highscores</button>
-                        </div>  
-                    
                     </div>
+                    
+                    
+                           
+                    
+                
             </div>
         
 
