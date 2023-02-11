@@ -2,14 +2,18 @@ var timeEl = document.getElementById("time");
 var timer;
 var currentQuestionIndex = 0;
 var startScreen = document.getElementById("startscreen");
-var endScreen = document.getElementById("endscreen");
+var quizEnd = document.getElementById("endscreen");
 var secondsLeft = 75;
 var startButton = document.getElementById("start_quiz");
-var questionsEl  = document.getElementById("container");
+var questionsEl  = document.getElementById("questions");
 var choices = document.getElementById("choices");
 var checkAnswerEl = document.getElementById("checkAnswer");
 var currentQuestion;
-var finalScore = document.getElementById("score");
+var highScores = document.getElementById("score");
+var viewHighscoreEl = document.getElementById("viewHighscores");
+var backbuttonEl = document.getElementById("backbutton");
+var clearButtonEl = document.getElementById("clearButton");
+
 
 function quizStart() {
     startScreen.setAttribute("class","hide")
@@ -20,9 +24,9 @@ function quizStart() {
 }
 
 function nextQuestion() {
-    var title = document.getElementById("question_title");
+    var titleEl = document.getElementById("title");
     currentQuestion = questions[currentQuestionIndex];
-    title.textContent = currentQuestion.title;
+    titleEl.textContent = currentQuestion.title;
     choices.innerHTML ="";
 
     for (var i = 0; i < currentQuestion.choices.length; i++) {
@@ -40,18 +44,23 @@ function nextQuestion() {
 
 }
 
-function clickButton () {
+function clickButton (e) {
     if (currentQuestion.answer !== e.target.value) {
         secondsLeft -=15
         if (secondsLeft < 0) {
             secondsLeft = 0;
         }
     
-    timeEl.textContent = secondsLeft;
-    checkAnswerEl.textContent = "Wrong!"
-    } else{
-    checkAnswerEl.textContent = "Correct!"
+        timeEl.textContent = secondsLeft;
+        checkAnswerEl.textContent = "Wrong!"
+     } else{
+        checkAnswerEl.textContent = "Correct!"
     }
+
+    checkAnswerEl.setAttribute("class", "checkAnswer");
+    setTimeout(function() {
+    checkAnswerEl.setAttribute("class", "hide");
+     }, 1000);
 
     currentQuestionIndex++;
 
@@ -70,14 +79,14 @@ function quizEnd() {
     endScreen.removeAttribute("class");
   
     // show score
-    var scoreEl = document.getElementById("score");
-    scoreEl.textContent = timer;
+    var highScores = document.getElementById("score");
+    highScores.textContent = timer;
   
     // hide questions element
     questionsEl.setAttribute("class", "hide");
 }
 
-    
+ 
 function setTime() {
   // Sets interval in variable
     secondsLeft--;
@@ -87,14 +96,25 @@ function setTime() {
       // Stops execution of action at set interval
       quizEnd();
     }
-
-
 }
+
+function saveScores() {
+    var initials = initials.value.trim();
+    if (initials) {
+        var highScores = JSON.parse(window.localStorage.getItem("highscores")) || []; 
+        var saveScores = { username: initials, saveScores: scores};
+        initials.value = '';
+
+
+        highScores.push(saveScores);
+        localStorage.setItem("highScores", JSON.stringify(highScores))
+
+        window.location.href = "viewHighscores";
+    }
+}
+
+
+submitInitials.onclick = saveScores;
  
-function highScores () {
-    
-}
-
-startButton.onclick = quizStart
-
+startButton.onclick = quizStart;
 

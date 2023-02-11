@@ -49,6 +49,15 @@ p {
     background-color: blueviolet;
 }
 
+.choices button {
+    display: block;
+    
+  }
+
+  input[type="text"] {
+    font-size: 100%;
+  }
+
 .score input:focus {
     background-color: violet;
 }
@@ -60,3 +69,8 @@ footer {
     color: black;
     
   }
+
+  #startscreen {
+    text-align: center;
+  }
+  
