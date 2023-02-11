@@ -5,7 +5,7 @@
 The goal for this challenge was to create a timed quiz on JavaScript fundamentals with multiple-choice questions that stores high scores. 
 It is aimed at bootcamp students so that they can gauge their progress compared to their peers.
 
-Link to quiz: 
+Link to quiz: https://amyedmond.github.io/Code_Quiz/
 
 ## Installation
 
