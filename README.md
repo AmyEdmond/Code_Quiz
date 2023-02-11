@@ -21,6 +21,7 @@ When all the questions are answered or the timer reaches 0, the game is over. I 
 
 ## Images
 
-.\assets\images\launch_page.PNG
+![launch_page](https://user-images.githubusercontent.com/122325607/218285286-b1b5dae8-bd5e-4068-886d-5c2242471509.PNG)
 
-.\assets\images\question_example.PNG
+![question_example](https://user-images.githubusercontent.com/122325607/218285287-62eac326-cab8-45e4-ac4f-4c2d64b22ef7.PNG)
+
