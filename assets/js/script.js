@@ -2,7 +2,7 @@ var timeEl = document.getElementById("time");
 var timer;
 var currentQuestionIndex = 0;
 var startScreen = document.getElementById("startscreen");
-var quizEnd = document.getElementById("endscreen");
+var endScreen = document.getElementById("endScreen");
 var secondsLeft = 75;
 var startButton = document.getElementById("start_quiz");
 var questionsEl  = document.getElementById("questions");
