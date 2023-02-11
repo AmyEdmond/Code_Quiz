@@ -19,40 +19,39 @@
 
         <main>
             <div class="wrapper">
-                <div id="startscreen">
-                    <h1>Coding Quiz Challenge</h1>
-                    <p>Try to answer the following code-related questions whitin the time limit
-                    <br>Keep in mind that incorrect answers will penalize your score/time by ten seconds!</br>
-                    </p>
+                    <div id="startscreen">
+                        <h1>Coding Quiz Challenge</h1>
+                        <p>Try to answer the following code-related questions whitin the time limit
+                        <br>Keep in mind that incorrect answers will penalize your score/time by ten seconds!</br>
+                        </p>
             
-                    <button id="start_quiz" class="button"> Start Quiz</button>
-                </div>
-
-                <div id="questions" class="questions">
-                    <h2 id="title"></h2>
-                    <div id="choices" class="choices"></div>
-                    <div id="checkAnswer" class="hide"></div>
-                </div>
-            
-                <div id="endScreen" class="hide">
-                    <div>
-                        <h2>All done!</h2>
-                        <p> 
-                            <h2>Enter initials: </h2> 
-                            <input type="text" id="initials" name="initials" /> 
-                            <button id="submitInitials" class="button">Submit</button>
-                           </p>
+                        <button id="start_quiz" class="button"> Start Quiz</button>
                     </div>
-                </div>
-                <div id="highScores" class="hide">
-                        <h2>High Scores</h2>
-                        <div>Your final score is: <span id ="highScores">0</span></div>
+
+                    <div id="questions" class="questions">
+                        <h2 id="title"></h2>
+                        <div id="choices" class="choices"></div>
+                        <div id="checkAnswer" class="hide"></div>
+                    </div>
+            
+                    <div id="endScreen" class="hide">
+                        <div>
+                            <h2>All done!</h2>
+                            <p> 
+                                <h2>Enter initials: </h2> 
+                                <input type="text" id="addInitials" max="3" /> 
+                                <button id="submitInitials" class="button">Submit</button>
+                            </p>
+                        </div>
+                    </div>
+                    <div id="lastScores" class="hide">
+                        <div>Your final score is: <span id ="Scores">0</span></div>
                         <div>
                             <button id="backButton" class="button">Go back</button> 
                             <button id="clearButton" class="button">Clear Highscores</button>
                         </div>  
                     
-                </div>
+                    </div>
             </div>
         
 

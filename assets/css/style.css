@@ -15,6 +15,10 @@ body {
     align-items: center;
   }
 
+  .wrapper {
+    text-align: center;
+  }
+
   a {
     text-decoration: none;
     padding: 20px;
@@ -49,10 +53,7 @@ p {
     background-color: blueviolet;
 }
 
-.choices button {
-    display: block;
     
-  }
 
   input[type="text"] {
     font-size: 100%;

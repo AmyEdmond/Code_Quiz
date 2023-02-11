@@ -1,17 +1,18 @@
 var timeEl = document.getElementById("timer");
 var currentQuestionIndex = 0;
 var startScreen = document.getElementById("startscreen");
-var endScreen = document.getElementById("endScreen");
+var endScreenEl = document.getElementById("endScreen");
 var secondsLeft = 75;
 var startButton = document.getElementById("start_quiz");
 var questionsEl  = document.getElementById("questions");
 var choices = document.getElementById("choices");
 var checkAnswerEl = document.getElementById("checkAnswer");
 var currentQuestion;
-var FinalScores = document.getElementById("highScores");
+var finalScores = document.getElementById("lastScores");
 var viewHighscoreEl = document.getElementById("viewHighscores");
 var backbuttonEl = document.getElementById("backbutton");
 var clearButtonEl = document.getElementById("clearButton");
+var initialsEl = document.getElementById("addInitials");
 
 
 function quizStart() {
@@ -74,14 +75,9 @@ function clickButton (e) {
 
 function quizEnd() {
     clearInterval(timer);
-    endScreen.setAttribute("class","hide")
-    endScreen.removeAttribute("class");
-  
-    // show score
-    var FinalScores = document.getElementById("highScores");
-    FinalScores.textContent = timer;
-  
-    // hide questions element
+    endScreenEl.setAttribute("class","hide")
+    endScreenEl.removeAttribute("class");
+    finalScores.textContent = timer;
     questionsEl.setAttribute("class", "hide");
 }
 
@@ -98,17 +94,17 @@ function setTime() {
 }
 
 function saveScores() {
-    var initials = submitInitials.value.trim();
-    if (initials = "") {
+    var initials = initialsEl.value.trim();
+    if (initials !== "") {
         var highScores = JSON.parse(window.localStorage.getItem("highscores")) || []; 
-        var saveScores = { username: initials, saveScores: highScores};
+        var addScores = { username: initials, Scores: secondsLeft};
         initials.value = '';
 
 
-        highScores.push(saveScores);
-        localStorage.setItem("highScores", JSON.stringify(highScores))
+        highScores.push(addScores);
+        window.localStorage.setItem("highScores", JSON.stringify(highScores))
 
-        window.location.href = "viewHighscores";
+        window.location.href = "viewHighScores";
     }
 }
 
