@@ -9,7 +9,7 @@ var titleEl = document.getElementById("title");
 var choices = document.getElementById("choices");
 var checkAnswerEl = document.getElementById("checkAnswer");
 var currentQuestion;
-var finalScores = document.getElementById("lastScores");
+var finalScores = document.getElementById("Scores");
 var viewHighscoreEl = document.getElementById("viewHighscores");
 var backbuttonEl = document.getElementById("backbutton");
 var clearButtonEl = document.getElementById("clearButton");
@@ -79,7 +79,7 @@ function quizEnd() {
     clearInterval(timer);
     questionsEl.setAttribute("class","hide")
     endScreenEl.removeAttribute("class");
-    finalScores.textContent = timer;
+    finalScores.textContent = secondsLeft;
 }
 
  
