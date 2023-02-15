@@ -134,11 +134,11 @@ function displayScores() {
     lastScoresEl.removeAttribute ("class");
     var scores = JSON.parse(window.localStorage.getItem("scores")) || [];
     for (var i = 0; i < scores.length; i++) {
-        storedScoresEl.innerHTML = localStorage.scores + localStorage.getItem(localStorage.scores);
-       //retourne le code avec les "" et {} storedScoresEl.innerHTML = localStorage.scores + localStorage.getItem(localStorage.scores);
-        
-        
-}
+        var li = document.createElement('li');
+        li.textContent = 'Initials: ' + scores[i].initials + ' - ' + 'Score: ' + scores[i].scores;
+        storedScoresEl.appendChild(li);
+               
+    }
 }
 
 function clearScores() {

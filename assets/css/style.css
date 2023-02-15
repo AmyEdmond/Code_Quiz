@@ -17,8 +17,8 @@ body {
 
   .wrapper {
     text-align: center;
-    margin: 100px auto 0 auto;
-    max-width: 600px;
+    margin: 50px auto 0 auto;
+    max-width: 300px;
   }
 
   a {
@@ -80,7 +80,7 @@ input[type="text"] {
     background-color: violet;
 }
 
-ol {
+li {
     display: block;
     background: violet;
     color: black;
