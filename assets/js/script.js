@@ -100,7 +100,7 @@ function totalScore() {
         secondsLeft === 0;
     }
     console.log(secondsLeft);
-    return score = secondsLeft;
+    return scores = secondsLeft;
     
 }
 
