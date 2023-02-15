@@ -1,6 +1,6 @@
 var timeEl = document.getElementById("timer");
 var currentQuestionIndex = 0;
-var startScreen = document.getElementById("startscreen");
+var startScreenEl = document.getElementById("startscreen");
 var endScreenEl = document.getElementById("endScreen");
 var secondsLeft = 75;
 var startButton = document.getElementById("start_quiz");
@@ -9,15 +9,17 @@ var titleEl = document.getElementById("title");
 var choices = document.getElementById("choices");
 var checkAnswerEl = document.getElementById("checkAnswer");
 var currentQuestion;
-var finalScores = document.getElementById("lastScores");
+var finalScores = document.getElementById("scores");
 var viewHighscoreEl = document.getElementById("viewHighscores");
 var backbuttonEl = document.getElementById("backbutton");
 var clearButtonEl = document.getElementById("clearButton");
 var initialsEl = document.getElementById("addInitials");
+var lastScoresEl = document.getElementById("lastScores");
+var storedScoresEl = document.getElementById("storedScores");
 
 
 function quizStart() {
-    startScreen.setAttribute("class","hide")
+    startScreenEl.setAttribute("class","hide")
     questionsEl.removeAttribute("class")
     timer = setInterval(setTime,1000);
     timeEl.textContent = secondsLeft;
@@ -31,9 +33,9 @@ function nextQuestion() {
 
     for (var i = 0; i < currentQuestion.choices.length; i++) {
         var choice = currentQuestion.choices[i];
-        var choiceNode = document.createElement('button');
-        choiceNode.setAttribute('class', 'choice');
-        choiceNode.setAttribute('value', choice);
+        var choiceNode = document.createElement("button");
+        choiceNode.setAttribute("class", "choice");
+        choiceNode.setAttribute("value", choice);
     
         choiceNode.textContent = choice;
         choiceNode.onclick = clickButton;
@@ -79,8 +81,8 @@ function quizEnd() {
     clearInterval(timer);
     questionsEl.setAttribute("class","hide")
     endScreenEl.removeAttribute("class");
-    finalScores.textContent = timer;
-}
+    finalScores.textContent = secondsLeft;
+    }
 
  
 function setTime() {
@@ -99,14 +101,17 @@ function totalScore() {
     }
     console.log(secondsLeft);
     return score = secondsLeft;
+    
 }
+
 
 function saveScores() {
     var initials = initialsEl.value;
         if (initials !== "") {
             var finalScore = {
-              score: timeEl.textContent,
-              initials: initials
+                initials: initials, 
+                scores: finalScores.textContent
+            
             };
             var scores = localStorage.getItem("scores");
             if (scores === null) {
@@ -117,12 +122,38 @@ function saveScores() {
             scores.push(finalScore);
             var newScore = JSON.stringify(scores);
             localStorage.setItem("scores", newScore); 
+           
         } 
-   
+        displayScores();
 }
 
 
+function displayScores() {
+    startScreenEl.setAttribute("class","hide");
+    endScreenEl.setAttribute("class","hide");
+    lastScoresEl.removeAttribute ("class");
+    var scores = localStorage.getItem("scores");
+            if (scores === null) {
+              scores = [];
+            } else {
+              scores = JSON.parse(scores);
+            }
+    for (var i = 0; i < scores.length; i++) {
+        storedScoresEl.innerHTML = localStorage.scores + localStorage.getItem(localStorage.scores);
+       //retourne le code avec les "" et {} storedScoresEl.innerHTML = localStorage.scores + localStorage.getItem(localStorage.scores);
+        
+        
+}
+}
+
+function clearScores() {
+    storedScoresEl.setAttribute("class","hide");
+    window.localStorage.clear(scores);
+
+}
+
+viewHighscoreEl.onclick = displayScores;
+clearButtonEl.onclick = clearScores;
 submitInitials.onclick = saveScores;
- 
 startButton.onclick = quizStart;
 

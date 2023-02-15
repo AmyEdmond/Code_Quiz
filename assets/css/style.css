@@ -76,9 +76,18 @@ input[type="text"] {
     font-size: 100%;
 }
 
-.score input:focus {
+.scores input:focus {
     background-color: violet;
 }
+
+ol {
+    display: block;
+    background: violet;
+    color: black;
+    padding: 5px;
+    
+}
+
 
 footer {
     position: absolute;
@@ -91,4 +100,6 @@ footer {
 .startscreen {
     text-align: center;
 }
+
+
   

@@ -20,6 +20,7 @@ If I answer a question incorrectly, time is subtracted from the clock
 When all the questions are answered or the timer reaches 0, the game is over. I can then save my initials and my score.
 
 ##Images
+
 .\assets\images\launch_page.PNG
 
 .\assets\images\question_example.PNG
