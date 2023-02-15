@@ -81,8 +81,8 @@ function quizEnd() {
     clearInterval(timer);
     questionsEl.setAttribute("class","hide")
     endScreenEl.removeAttribute("class");
-    finalScores.textContent = secondsLeft;
-    }
+    finalScores.textContent = timer;
+}
 
  
 function setTime() {
