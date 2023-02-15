@@ -81,7 +81,7 @@ function quizEnd() {
     clearInterval(timer);
     questionsEl.setAttribute("class","hide")
     endScreenEl.removeAttribute("class");
-    finalScores.textContent = timer;
+    finalScores.textContent = secondsLeft;
 }
 
  
@@ -132,12 +132,7 @@ function displayScores() {
     startScreenEl.setAttribute("class","hide");
     endScreenEl.setAttribute("class","hide");
     lastScoresEl.removeAttribute ("class");
-    var scores = localStorage.getItem("scores");
-            if (scores === null) {
-              scores = [];
-            } else {
-              scores = JSON.parse(scores);
-            }
+    var scores = JSON.parse(window.localStorage.getItem("scores")) || [];
     for (var i = 0; i < scores.length; i++) {
         storedScoresEl.innerHTML = localStorage.scores + localStorage.getItem(localStorage.scores);
        //retourne le code avec les "" et {} storedScoresEl.innerHTML = localStorage.scores + localStorage.getItem(localStorage.scores);
