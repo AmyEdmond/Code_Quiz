@@ -11,7 +11,7 @@ var checkAnswerEl = document.getElementById("checkAnswer");
 var currentQuestion;
 var finalScores = document.getElementById("scores");
 var viewHighscoreEl = document.getElementById("viewHighscores");
-var backbuttonEl = document.getElementById("backbutton");
+var submitInitialsEl = document.getElementById("submitInitials");
 var clearButtonEl = document.getElementById("clearButton");
 var initialsEl = document.getElementById("addInitials");
 var lastScoresEl = document.getElementById("lastScores");
@@ -141,14 +141,16 @@ function displayScores() {
     }
 }
 
+
 function clearScores() {
     storedScoresEl.setAttribute("class","hide");
     window.localStorage.clear(scores);
 
 }
 
+
 viewHighscoreEl.onclick = displayScores;
 clearButtonEl.onclick = clearScores;
-submitInitials.onclick = saveScores;
+submitInitialsEl.onclick = saveScores;
 startButton.onclick = quizStart;
 
